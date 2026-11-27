@@ -1,0 +1,253 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #fff0f3, #ffe0e8, #fff5eb);
+    font-family: 'Montserrat', sans-serif;
+    color: #704653;
+    overflow-x: hidden;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.top-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #b17c8c;
+    margin-bottom: 20px;
+}
+
+.flower {
+    font-size: 55px;
+    animation: floating 3s ease-in-out infinite;
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(55px, 9vw, 90px);
+    font-weight: normal;
+    line-height: 1.1;
+    margin: 15px 0;
+    color: #a64d69;
+}
+
+h1 span {
+    color: #d66b89;
+}
+
+.subtitle {
+    max-width: 450px;
+    line-height: 1.8;
+    font-size: 14px;
+    color: #956b79;
+    margin-bottom: 35px;
+}
+
+.card {
+    width: min(100%, 430px);
+    min-height: 440px;
+    position: relative;
+    perspective: 1200px;
+    margin-bottom: 25px;
+}
+
+.card-cover,
+.letter {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 22px;
+    box-shadow: 0 20px 60px rgba(151, 77, 101, 0.15);
+}
+
+.card-cover {
+    z-index: 2;
+    background: linear-gradient(145deg, #d77d98, #a94e70);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 1s ease, opacity 0.8s ease;
+}
+
+.cover-content {
+    padding: 30px;
+}
+
+.cover-flower {
+    font-size: 75px;
+    margin-bottom: 20px;
+}
+
+.card-cover h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+    font-weight: normal;
+    margin-bottom: 15px;
+}
+
+.card-cover p {
+    font-size: 12px;
+    letter-spacing: 1px;
+    opacity: 0.85;
+}
+
+.open-icon {
+    font-size: 35px;
+    margin-top: 30px;
+}
+
+.letter {
+    background: #fffdf9;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 1s ease 0.3s;
+}
+
+.letter-content {
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.letter-flower {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.letter h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 39px;
+    font-weight: normal;
+    color: #bd6380;
+    margin-bottom: 18px;
+}
+
+.letter p {
+    font-size: 12px;
+    line-height: 1.9;
+    margin-bottom: 12px;
+    color: #765966;
+}
+
+.letter .final-words {
+    font-size: 15px;
+    font-weight: 700;
+    color: #c65e7e;
+    margin-top: 15px;
+}
+
+.signature {
+    font-family: 'Great Vibes', cursive;
+    font-size: 27px;
+    color: #b65b79;
+    margin-top: 15px;
+}
+
+.card.opened .card-cover {
+    transform: rotateY(-100deg);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.card.opened .letter {
+    opacity: 1;
+}
+
+button {
+    border: none;
+    background: #c76583;
+    color: white;
+    padding: 16px 35px;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(199, 101, 131, 0.25);
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #a94e70;
+    transform: translateY(-3px);
+}
+
+.footer {
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #b17c8c;
+    margin-top: 35px;
+}
+
+.petals {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.petal {
+    position: absolute;
+    top: -30px;
+    animation: falling linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes falling {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 35px 15px;
+    }
+
+    .card {
+        min-height: 480px;
+    }
+
+    .letter {
+        padding: 22px;
+    }
+
+    .letter p {
+        font-size: 11px;
+    }
+
+    .top-label {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+}
